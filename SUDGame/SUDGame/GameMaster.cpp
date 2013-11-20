@@ -76,7 +76,7 @@ void CGameMaster::StartBattle(CMonster* mob)
 	else
 	{
 		printf_s("You Are Dead...\n");
-		system("exit");
+		exit(0);
 	}
 	getchar();
 }
