@@ -19,6 +19,18 @@
     <Filter Include="GameLogic">
       <UniqueIdentifier>{6ce46d06-389d-4a5c-b373-dc6772af3f77}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameData\Characters">
+      <UniqueIdentifier>{e4950e36-4851-49e7-bdef-db5c4f21c550}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameData\Item">
+      <UniqueIdentifier>{536819db-3563-49a2-870b-c9c33de69c7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameData\Skill">
+      <UniqueIdentifier>{88c63cf4-b8e2-4a95-be27-127ca0e14d94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameData\GameMap">
+      <UniqueIdentifier>{34e41c14-27cc-4848-a7cf-1d53d663509e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -30,22 +42,7 @@
     <ClInclude Include="stdafx.h">
       <Filter>MainLoop</Filter>
     </ClInclude>
-    <ClInclude Include="GameMap.h">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="MapTile.h">
-      <Filter>GameData</Filter>
-    </ClInclude>
     <ClInclude Include="config.h">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
       <Filter>GameData</Filter>
     </ClInclude>
     <ClInclude Include="GameMaster.h">
@@ -54,11 +51,26 @@
     <ClInclude Include="GameInput.h">
       <Filter>GameLogic</Filter>
     </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>GameData\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>GameData\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>GameData\Characters</Filter>
+    </ClInclude>
     <ClInclude Include="Item.h">
-      <Filter>GameData</Filter>
+      <Filter>GameData\Item</Filter>
     </ClInclude>
     <ClInclude Include="Skill.h">
-      <Filter>GameData</Filter>
+      <Filter>GameData\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMap.h">
+      <Filter>GameData\GameMap</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTile.h">
+      <Filter>GameData\GameMap</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -68,32 +80,32 @@
     <ClCompile Include="SUDGame.cpp">
       <Filter>MainLoop</Filter>
     </ClCompile>
-    <ClCompile Include="GameMap.cpp">
-      <Filter>GameData</Filter>
-    </ClCompile>
-    <ClCompile Include="MapTile.cpp">
-      <Filter>GameData</Filter>
-    </ClCompile>
-    <ClCompile Include="Character.cpp">
-      <Filter>GameData</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>GameData</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>GameData</Filter>
-    </ClCompile>
     <ClCompile Include="GameMaster.cpp">
       <Filter>GameLogic</Filter>
     </ClCompile>
     <ClCompile Include="GameInput.cpp">
       <Filter>GameLogic</Filter>
     </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>GameData\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>GameData\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>GameData\Characters</Filter>
+    </ClCompile>
     <ClCompile Include="Item.cpp">
-      <Filter>GameData</Filter>
+      <Filter>GameData\Item</Filter>
     </ClCompile>
     <ClCompile Include="Skill.cpp">
-      <Filter>GameData</Filter>
+      <Filter>GameData\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMap.cpp">
+      <Filter>GameData\GameMap</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTile.cpp">
+      <Filter>GameData\GameMap</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

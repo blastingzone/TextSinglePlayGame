@@ -39,19 +39,23 @@ bool CGameInput::CommandInput()
 	// printf_s("%s \n", userInput.c_str());
 
 	// 이동 명령어
-	if (userInput == "W" || userInput == "w")
+	if ((userInput == "W" || userInput == "w")
+		&& CGameMap::GetInstance()->IsMovableCoordinate(CPlayer::GetInstance()->GetPosition(), DIR_UP) )
 	{
 		CPlayer::GetInstance()->MovePlayer(DIR_UP);
 	}
-	if (userInput == "S" || userInput == "s")
+	if (userInput == "S" || userInput == "s"
+		&& CGameMap::GetInstance()->IsMovableCoordinate(CPlayer::GetInstance()->GetPosition(), DIR_DOWN) )
 	{
 		CPlayer::GetInstance()->MovePlayer(DIR_DOWN);
 	}
-	if (userInput == "A" || userInput == "a")
+	if (userInput == "A" || userInput == "a"
+		&& CGameMap::GetInstance()->IsMovableCoordinate(CPlayer::GetInstance()->GetPosition(), DIR_LEFT) )
 	{
 		CPlayer::GetInstance()->MovePlayer(DIR_LEFT);
 	}
-	if (userInput == "D" || userInput == "d")
+	if (userInput == "D" || userInput == "d"
+		&& CGameMap::GetInstance()->IsMovableCoordinate(CPlayer::GetInstance()->GetPosition(), DIR_RIGHT) )
 	{
 		CPlayer::GetInstance()->MovePlayer(DIR_RIGHT);
 	}
@@ -68,3 +72,4 @@ bool CGameInput::CommandInput()
 
 	return true;
 }
+

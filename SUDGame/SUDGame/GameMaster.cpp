@@ -38,7 +38,7 @@ void CGameMaster::CreateAndLocaleMonsters()
 			pMob->SetPosition(random_x, random_y);
 			CGameMap::GetInstance()->SetMonster(random_x, random_y, pMob);
 
-			printf_s("¸÷ ÀÌ¸§ : %s ¸÷ À§Ä¡ : %d, %d \n", pMob->GetName().c_str(), pMob->GetPosition().x_Coordinate, pMob->GetPosition().y_Coordinate);
+			printf_s("¸÷ ÀÌ¸§ : %s ¸÷ À§Ä¡ : %d, %d \n", pMob->GetName().c_str(), pMob->GetPosition().i_Coordinate, pMob->GetPosition().j_Coordinate);
 			
 			++i;
 		}

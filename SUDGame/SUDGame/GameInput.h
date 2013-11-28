@@ -6,7 +6,8 @@ public:
 	~CGameInput(void);
 
 	static CGameInput*		GetInstance();
-	bool			CommandInput();
+	bool					CommandInput();
+	
 
 private:
 	static CGameInput* m_pInstance;

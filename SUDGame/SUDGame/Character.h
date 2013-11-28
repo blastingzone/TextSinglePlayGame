@@ -9,7 +9,7 @@ public:
 	virtual ~CCharacter(void);
 
 	void SetName(std::string name) {m_Name = name;}
-	void SetPosition(int i, int j) {m_CurrentPosition.x_Coordinate = i; m_CurrentPosition.y_Coordinate = j;}
+	void SetPosition(int i, int j) {m_CurrentPosition.i_Coordinate = i; m_CurrentPosition.j_Coordinate = j;}
 	
 	std::string GetName() {return m_Name;}
 

@@ -27,7 +27,7 @@ CGameMap* CGameMap::GetInstance()
 
 CMapTile* CGameMap::GetMapType(Position currentPosition) 
 {
-	return &m_WorldGameMap[currentPosition.x_Coordinate][currentPosition.y_Coordinate];
+	return &m_WorldGameMap[currentPosition.i_Coordinate][currentPosition.j_Coordinate];
 }
 
 void CGameMap::InitMap()
@@ -37,7 +37,7 @@ void CGameMap::InitMap()
 
 void CGameMap::PrintMap()
 {
-	printf_s(" ::::::::: 세계지도   ~ : 강, ^ : 산, D : 던전, T : 마을 ::::::::::\n");
+	printf_s(" ::::::::: 세계지도   ~ : 강, ^ : 산, D : 던전, T : 마을 ::::::::::\n\n ");
 	for (int i = 0; i < WORLD_MAP_HEIGHT-1 ; i++)
 	{
 		for (int j = 0; j < WORLD_MAP_WIDTH-1 ; j++)
@@ -81,4 +81,24 @@ void CGameMap::SetRandomTileTypeAllMap()
 void CGameMap::SetMonster(int i, int j, CMonster* mob)
 {
 	m_WorldGameMap[i][j].SetMonster(mob);
+}
+
+bool CGameMap::IsMovableCoordinate(Position position, DIRECTION DIR)
+{
+	switch(DIR)
+	{
+	case DIR_DOWN:
+		++position.i_Coordinate;
+		break;
+	case DIR_UP:
+		--position.i_Coordinate;
+		break;
+	case DIR_LEFT:
+		--position.j_Coordinate;
+		break;
+	case DIR_RIGHT:
+		++position.j_Coordinate;
+		break;
+	}
+	return CGameMap::GetInstance()->GetMapType(position)->IsMovable();
 }

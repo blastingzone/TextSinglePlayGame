@@ -7,10 +7,10 @@ const int WORLD_MAP_HEIGHT = 10;
 struct Position
 {
 	Position() {};
-	Position(int i, int j) {x_Coordinate = i; y_Coordinate = j;}
+	Position(int i, int j) {i_Coordinate = i; j_Coordinate = j;}
 
-	int x_Coordinate;
-	int y_Coordinate;
+	int i_Coordinate;
+	int j_Coordinate;
 };
 
 // 이동 방향

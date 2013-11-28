@@ -17,6 +17,8 @@ public:
 	CMonster* GetMonster() {return m_Monster;}
 	void SetMonster(CMonster* mob);
 
+	bool IsMovable() {return m_Movable;}
+
 private:
 	std::string		m_Description;
 
