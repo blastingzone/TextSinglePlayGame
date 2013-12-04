@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "GameMap.h"
 
 CGameMap* CGameMap::m_pInstance = nullptr;
@@ -14,6 +14,7 @@ CGameMap::~CGameMap(void)
 
 CGameMap* CGameMap::GetInstance()
 {
+	// agebreak : 생성한 싱글톤은 어디서 해제 하는가?
 		if (m_pInstance == nullptr)
 	{
 		m_pInstance = new CGameMap();
@@ -37,7 +38,7 @@ void CGameMap::InitMap()
 
 void CGameMap::PrintMap()
 {
-	printf_s(" ::::::::: ��������   ~ : ��, ^ : ��, D : ����, T : ���� ::::::::::\n\n ");
+	printf_s(" ::::::::: 세계지도   ~ : 강, ^ : 산, D : 던전, T : 마을 ::::::::::\n\n ");
 	for (int i = 0; i < WORLD_MAP_HEIGHT-1 ; i++)
 	{
 		for (int j = 0; j < WORLD_MAP_WIDTH-1 ; j++)
@@ -65,6 +66,9 @@ void CGameMap::PrintMap()
 	}
 }
 
+// agebreak : 현재 버전에는 맵이 랜덤으로 생성되어서, 시작해서 움직이지 못하는 경우가 생기는 버그가 있습니다. 
+// 최종 버전에는 이런 버그들도 해결되길 바랍니다. ^^
+// 그리고 캐릭터가 맵에 표시되지 않아서, 확인이 어려운 점도 있습니다. 
 void CGameMap::SetRandomTileTypeAllMap()
 {
 	int randomValue;
@@ -73,7 +77,9 @@ void CGameMap::SetRandomTileTypeAllMap()
 		for (int j = 0; j < WORLD_MAP_WIDTH-1 ; j++)
 		{
 			randomValue = rand() % sizeof(TILE_TYPE);
-			m_WorldGameMap[i][j].SetTileType(TILE_TYPE(randomValue) );
+			// agebreak : C++에서 형변환은 반대로 해야 합니다. (오히려 아래와 같은 형태로 되는게 신기.. ㅡ.ㅡ;;)
+			//m_WorldGameMap[i][j].SetTileType(TILE_TYPE(randomValue) );
+			m_WorldGameMap[i][j].SetTileType((TILE_TYPE)randomValue);
 		}
 	}
 }
@@ -100,5 +106,8 @@ bool CGameMap::IsMovableCoordinate(Position position, DIRECTION DIR)
 		++position.j_Coordinate;
 		break;
 	}
-	return CGameMap::GetInstance()->GetMapType(position)->IsMovable();
+
+	// agebreak : 굳이 같은 클래스내에서는 싱글톤 클래스를 사용할 필요가 없습니다. 
+	//return CGameMap::GetInstance()->GetMapType(position)->IsMovable();
+	return GetMapType(position)->IsMovable();
 }

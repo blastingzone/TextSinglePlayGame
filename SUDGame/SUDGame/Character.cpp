@@ -1,9 +1,10 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "Character.h"
 
 
 CCharacter::CCharacter(void)
 {
+	// agebreak : ë©¤ë²„ ë³€ìˆ˜ë“¤ì˜ ì´ˆê¸°í™”ê°€ ë¹ ì¡ŒìŠµë‹ˆë‹¤. 
 }
 
 
@@ -13,35 +14,35 @@ CCharacter::~CCharacter(void)
 
 void CCharacter::HitCheck(CCharacter* attacker)
 {
-	// ±âº» °ø°İ·ÂÀº ÈûÀÇ 5¹è
+	// ê¸°ë³¸ ê³µê²©ë ¥ì€ í˜ì˜ 5ë°°
 	int defaultDamage = attacker->GetSTR() * 5;
 	int hitCheck = (rand() % 20 + (attacker->GetDEX() - m_DEX));
 
-	// ·£´ı°ª + °ø°İÀÚ ¹ÎÃ¸ÀÇ ¿ìÀ§°¡ 15 ÃÊ°ú¸é Å©¸®Æ¼ÄÃ È÷Æ®
+	// ëœë¤ê°’ + ê³µê²©ì ë¯¼ì²©ì˜ ìš°ìœ„ê°€ 15 ì´ˆê³¼ë©´ í¬ë¦¬í‹°ì»¬ íˆíŠ¸
 	if ( hitCheck > 15 )
 	{
 		m_HP -= defaultDamage * 2;
-		printf_s("%sÀº Å©¸®Æ¼ÄÃ È÷Æ® ´çÇß´Ù! µ¥¹ÌÁö (%d)¸¦ ÀÔ¾ú´Ù! ³²Àº Ã¼·Â %d \n",m_Name.c_str(), 2* defaultDamage, m_HP);
+		printf_s("%sì€ í¬ë¦¬í‹°ì»¬ íˆíŠ¸ ë‹¹í–ˆë‹¤! ë°ë¯¸ì§€ (%d)ë¥¼ ì…ì—ˆë‹¤! ë‚¨ì€ ì²´ë ¥ %d \n",m_Name.c_str(), 2* defaultDamage, m_HP);
 		return;
 	}
-	// °°Àº °ø½Ä¿¡¼­ 11 ÀÌ»ó 15 ÀÌÇÏ¸é È÷Æ®
+	// ê°™ì€ ê³µì‹ì—ì„œ 11 ì´ìƒ 15 ì´í•˜ë©´ íˆíŠ¸
 	else if ( hitCheck > 10 )
 	{
 		m_HP -= defaultDamage;
-		printf_s("%sÀº °ø°İ´çÇß´Ù! µ¥¹ÌÁö (%d)¸¦ ÀÔ¾ú´Ù! ³²Àº Ã¼·Â %d \n",m_Name.c_str(), defaultDamage, m_HP);
+		printf_s("%sì€ ê³µê²©ë‹¹í–ˆë‹¤! ë°ë¯¸ì§€ (%d)ë¥¼ ì…ì—ˆë‹¤! ë‚¨ì€ ì²´ë ¥ %d \n",m_Name.c_str(), defaultDamage, m_HP);
 		return;
 	}
-	// °°Àº °ø½Ä¿¡¼­ 5 ÀÌ»ó 10 ÀÌÇÏ¸é µğÆæ½º
+	// ê°™ì€ ê³µì‹ì—ì„œ 5 ì´ìƒ 10 ì´í•˜ë©´ ë””íœìŠ¤
 	else if ( hitCheck > 4 )
 	{
 		m_HP -= defaultDamage / 2;
-		printf_s("%sÀº ¹æ¾îÇß´Ù! µ¥¹ÌÁö (%d)¸¦ ÀÔ¾ú´Ù! ³²Àº Ã¼·Â %d \n",m_Name.c_str(), defaultDamage/2, m_HP);
+		printf_s("%sì€ ë°©ì–´í–ˆë‹¤! ë°ë¯¸ì§€ (%d)ë¥¼ ì…ì—ˆë‹¤! ë‚¨ì€ ì²´ë ¥ %d \n",m_Name.c_str(), defaultDamage/2, m_HP);
 		return;
 	}
-	// 4 ÀÌÇÏ¸é ¹Ì½º
+	// 4 ì´í•˜ë©´ ë¯¸ìŠ¤
 	else
 	{
-		printf_s("%sÀº È¸ÇÇÇß´Ù! ³²Àº Ã¼·Â %d \n",m_Name.c_str(), m_HP);
+		printf_s("%sì€ íšŒí”¼í–ˆë‹¤! ë‚¨ì€ ì²´ë ¥ %d \n",m_Name.c_str(), m_HP);
 		return;
 	}
 
