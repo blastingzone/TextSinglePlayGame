@@ -7,6 +7,8 @@
 #include "GameMap.h"
 #include "GameMaster.h"
 #include <crtdbg.h>
+#include <time.h>
+
 // 메모리 누수 체크
 #ifdef _DEBUG
 #define new new(_CLIENT_BLOCK, __FILE__, __LINE__)
@@ -16,6 +18,9 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	// 메모리 누수 체크
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
+	// 랜덤 테이블 생성
+	srand( static_cast<unsigned int>( time(NULL) ) );
 
 	CGameMaster GM;
 	// 세계지도 초기화
@@ -35,8 +40,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	while(CGameInput::GetInstance()->CommandInput());
 
-	// agebreak : 메모리 릭 체크 구문을 넣은것은 잘 했습니다. 
-	// 그런데 정작 메모리 릭은 잡지 않았습니다. 싱글톤들을 생성하고, 나서 해제를 하지 않아서 수많은 메모리릭이 발생합니다. 
+
+	// 사용된 싱글톤을 해제
+	CPlayer::GetInstance()->ReleaseInstance();
+	CGameMap::GetInstance()->DeleteAllMonster();
+	CGameMap::GetInstance()->ReleaseInstance();
+	CGameInput::GetInstance()->ReleaseInstance();
 
 	return 0;
 }

@@ -17,14 +17,16 @@ public:
 	CMonster* GetMonster() {return m_Monster;}
 	void SetMonster(CMonster* mob);
 
+	void DeleteMonster();
+
 	bool IsMovable() {return m_Movable;}
 
 private:
 	std::string		m_Description;
 
-	char		m_TileName[32];
-	bool		m_Movable;
-	CMonster*	m_Monster;
-	TILE_TYPE	m_TileType;
+	char			m_TileName[32];
+	bool			m_Movable;
+	CMonster*		m_Monster;
+	TILE_TYPE		m_TileType;
 };
 

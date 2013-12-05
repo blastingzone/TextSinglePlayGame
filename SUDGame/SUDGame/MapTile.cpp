@@ -51,11 +51,16 @@ void CMapTile::SetTileType(TILE_TYPE type)
 
 void CMapTile::SetMonster(CMonster* mob)
 {
+	DeleteMonster();
+
+	m_Monster = mob;
+}
+
+void CMapTile::DeleteMonster()
+{
 	if (nullptr != m_Monster)
 	{
 		delete m_Monster;
 		m_Monster = nullptr;
 	}
-
-	m_Monster = mob;
 }

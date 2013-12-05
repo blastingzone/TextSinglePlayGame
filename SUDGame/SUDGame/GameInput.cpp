@@ -14,10 +14,7 @@ CGameInput::CGameInput(void)
 
 CGameInput::~CGameInput(void)
 {
-	if (m_pInstance != nullptr)
-	{
-		delete m_pInstance;
-	}
+	
 }
 
 CGameInput* CGameInput::GetInstance()
@@ -71,5 +68,14 @@ bool CGameInput::CommandInput()
 	}
 
 	return true;
+}
+
+void CGameInput::ReleaseInstance()
+{
+	if (m_pInstance != nullptr)
+	{
+		delete m_pInstance;
+		m_pInstance = nullptr;
+	}
 }
 

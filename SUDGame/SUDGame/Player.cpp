@@ -61,3 +61,12 @@ void CPlayer::PrintPosition()
 {
 	printf_s("현재 위치는 : %d, %d 입니다. \n", m_CurrentPosition.i_Coordinate, m_CurrentPosition.j_Coordinate);
 }
+
+void CPlayer::ReleaseInstance()
+{
+	if ( m_pInstance != nullptr )
+	{
+		delete m_pInstance;
+		m_pInstance = nullptr;
+	}
+}

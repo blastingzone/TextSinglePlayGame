@@ -10,12 +10,12 @@ CGameMap::CGameMap(void)
 
 CGameMap::~CGameMap(void)
 {
+	DeleteAllMonster();
 }
 
 CGameMap* CGameMap::GetInstance()
 {
-	// agebreak : 생성한 싱글톤은 어디서 해제 하는가?
-		if (m_pInstance == nullptr)
+	if (m_pInstance == nullptr)
 	{
 		m_pInstance = new CGameMap();
 		return m_pInstance;
@@ -77,9 +77,10 @@ void CGameMap::SetRandomTileTypeAllMap()
 		for (int j = 0; j < WORLD_MAP_WIDTH-1 ; j++)
 		{
 			randomValue = rand() % sizeof(TILE_TYPE);
-			// agebreak : C++에서 형변환은 반대로 해야 합니다. (오히려 아래와 같은 형태로 되는게 신기.. ㅡ.ㅡ;;)
+			// 예전 리뷰 : C++에서 형변환은 반대로 해야 합니다. (오히려 아래와 같은 형태로 되는게 신기.. ㅡ.ㅡ;;)
+			// --> 헐 그럴수가
 			//m_WorldGameMap[i][j].SetTileType(TILE_TYPE(randomValue) );
-			m_WorldGameMap[i][j].SetTileType((TILE_TYPE)randomValue);
+			m_WorldGameMap[i][j].SetTileType(static_cast<TILE_TYPE>(randomValue) );
 		}
 	}
 }
@@ -110,4 +111,24 @@ bool CGameMap::IsMovableCoordinate(Position position, DIRECTION DIR)
 	// agebreak : 굳이 같은 클래스내에서는 싱글톤 클래스를 사용할 필요가 없습니다. 
 	//return CGameMap::GetInstance()->GetMapType(position)->IsMovable();
 	return GetMapType(position)->IsMovable();
+}
+
+void CGameMap::DeleteAllMonster()
+{
+	for (int i = 0; i < WORLD_MAP_HEIGHT; ++i)
+	{
+		for (int j = 0; j < WORLD_MAP_WIDTH; ++j)
+		{
+			m_WorldGameMap[i][j].DeleteMonster();
+		}
+	}
+}
+
+void CGameMap::ReleaseInstance()
+{
+	if ( m_pInstance != nullptr )
+	{
+		delete m_pInstance;
+		m_pInstance = nullptr;
+	}
 }

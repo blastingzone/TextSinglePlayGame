@@ -9,6 +9,7 @@ public:
 	~CPlayer(void);
 
 	static CPlayer* GetInstance();
+	void ReleaseInstance();
 
 	void MovePlayer(DIRECTION DIR);
 	void PrintPosition();
