@@ -12,7 +12,9 @@ public:
 	void ReleaseInstance();
 
 	void MovePlayer(DIRECTION DIR);
+
 	void PrintPosition();
+	void PrintStatusUI();
 
 private:
 	static CPlayer* m_pInstance;

@@ -1,17 +1,17 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "Player.h"
 
 CPlayer* CPlayer::m_pInstance = nullptr;
 
 CPlayer::CPlayer(void)
 {
-	// ½ÃÀÛ ÁÂÇ¥ ¼³Á¤
+	// ì‹œìž‘ ì¢Œí‘œ ì„¤ì •
 	m_CurrentPosition.i_Coordinate = 0;
 	m_CurrentPosition.j_Coordinate = 0;
 
-	SetName("ÁÖÀÎ°ø");
+	SetName("ì£¼ì¸ê³µ");
 
-	// ±âÃÊ ÆÄ¶ó¹ÌÅÍ ¼³Á¤
+	// ê¸°ì´ˆ íŒŒë¼ë¯¸í„° ì„¤ì •
 	m_HP = 450;
 	m_MP = 150;
 	m_STR = 11;
@@ -36,7 +36,7 @@ CPlayer* CPlayer::GetInstance()
 	}
 }
 
-// ÀÌµ¿ÇÏ´Â ¸Þ¼Òµå
+// ì´ë™í•˜ëŠ” ë©”ì†Œë“œ
 void CPlayer::MovePlayer(DIRECTION DIR)
 {
 	if (DIR == DIR_UP && (m_CurrentPosition.i_Coordinate > 0) )
@@ -62,7 +62,7 @@ void CPlayer::MovePlayer(DIRECTION DIR)
 
 void CPlayer::PrintPosition()
 {
-	printf_s("ÇöÀç À§Ä¡´Â : %d, %d ÀÔ´Ï´Ù. \n", m_CurrentPosition.i_Coordinate, m_CurrentPosition.j_Coordinate);
+	printf_s("í˜„ìž¬ ìœ„ì¹˜ëŠ” : %d, %d ìž…ë‹ˆë‹¤. \n", m_CurrentPosition.i_Coordinate, m_CurrentPosition.j_Coordinate);
 }
 
 void CPlayer::ReleaseInstance()
@@ -72,4 +72,13 @@ void CPlayer::ReleaseInstance()
 		delete m_pInstance;
 		m_pInstance = nullptr;
 	}
+}
+
+void CPlayer::PrintStatusUI()
+{
+	printf("\n");
+	printf("+~=~=~ %5s STATUS =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=+\n", m_Name.c_str());
+	printf("|   ì²´ë ¥ : %5d     ë§ˆë ¥ : %5d                   |\n", m_HP, m_MP );
+	printf("|   ê·¼ë ¥ : %5d     ë¯¼ì²© : %5d    ì§€ëŠ¥ : %5d   |\n", m_STR, m_DEX, m_INT );
+	printf("+~=~=~=~=~=~=~~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=+\n");
 }

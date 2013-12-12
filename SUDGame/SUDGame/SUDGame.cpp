@@ -1,4 +1,4 @@
-// SUDGame.cpp : Defines the entry point for the console application.
+ï»¿// SUDGame.cpp : Defines the entry point for the console application.
 //
 
 #include "stdafx.h"
@@ -9,7 +9,7 @@
 #include <crtdbg.h>
 #include <time.h>
 
-// ¸Ş¸ğ¸® ´©¼ö Ã¼Å©
+// ë©”ëª¨ë¦¬ ëˆ„ìˆ˜ ì²´í¬
 #ifdef _DEBUG
 #define new new(_CLIENT_BLOCK, __FILE__, __LINE__)
 #endif
@@ -19,32 +19,33 @@ int _tmain(int argc, _TCHAR* argv[])
 	argc;
 	argv;
 
-	// ¸Ş¸ğ¸® ´©¼ö Ã¼Å©
+	// ë©”ëª¨ë¦¬ ëˆ„ìˆ˜ ì²´í¬
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-	// ·£´ı Å×ÀÌºí »ı¼º
+	// ëœë¤ í…Œì´ë¸” ìƒì„±
 	srand( static_cast<unsigned int>( time(NULL) ) );
 
 	CGameMaster GM;
-	// ¼¼°èÁöµµ ÃÊ±âÈ­
+	// ì„¸ê³„ì§€ë„ ì´ˆê¸°í™”
 	CGameMap::GetInstance()->InitMap();
 	GM.CreateAndLocaleMonsters();
 	getchar();
 
-	// ¸ŞÀÎ ·çÇÁ
+	// ë©”ì¸ ë£¨í”„
 	do
 	{
-		//ÄÜ¼Ö È­¸éÀ» Áö¿ì´Â ¸í·É¾î
+		//ì½˜ì†” í™”ë©´ì„ ì§€ìš°ëŠ” ëª…ë ¹ì–´
 		system("cls");
 		CPlayer::GetInstance()->PrintPosition();
 		CGameMap::GetInstance()->PrintMap();
 		CGameMap::GetInstance()->GetMapType(CPlayer::GetInstance()->GetPosition())->Render();
 		GM.CheckMob(CPlayer::GetInstance()->GetPosition());
+		CPlayer::GetInstance()->PrintStatusUI();
 	}
 	while(CGameInput::GetInstance()->CommandInput());
 
 
-	// »ç¿ëµÈ ½Ì±ÛÅæÀ» ÇØÁ¦
+	// ì‚¬ìš©ëœ ì‹±ê¸€í†¤ì„ í•´ì œ
 	CPlayer::GetInstance()->ReleaseInstance();
 	CGameMap::GetInstance()->DeleteAllMonster();
 	CGameMap::GetInstance()->ReleaseInstance();
