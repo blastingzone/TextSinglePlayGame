@@ -16,6 +16,9 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	argc;
+	argv;
+
 	// 메모리 누수 체크
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 

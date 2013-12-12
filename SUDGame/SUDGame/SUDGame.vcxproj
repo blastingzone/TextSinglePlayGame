@@ -48,10 +48,11 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -84,6 +85,7 @@
     <ClInclude Include="GameInput.h" />
     <ClInclude Include="GameMap.h" />
     <ClInclude Include="GameMaster.h" />
+    <ClInclude Include="Help.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="MapTile.h" />
     <ClInclude Include="Monster.h" />
@@ -97,6 +99,7 @@
     <ClCompile Include="GameInput.cpp" />
     <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="GameMaster.cpp" />
+    <ClCompile Include="Help.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="MapTile.cpp" />
     <ClCompile Include="Monster.cpp" />

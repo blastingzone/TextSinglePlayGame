@@ -8,7 +8,6 @@ CMapTile::CMapTile(void)
 	m_Monster = nullptr;
 }
 
-
 CMapTile::~CMapTile(void)
 {
 }
@@ -21,7 +20,7 @@ void CMapTile::Render()
 	}
 }
 
-void CMapTile::SetDescription(std::string description)
+void CMapTile::SetDescription(const std::string& description)
 {
 	m_Description = description;
 }

@@ -9,16 +9,16 @@ public:
 
 	static CGameMap* GetInstance();
 
-	void InitMap();
-	CMapTile* GetMapType(Position currentPosition);
-	void PrintMap();
+	void		InitMap();
+	CMapTile*	GetMapType(Position currentPosition);
+	void		PrintMap();
 
-	void SetRandomTileTypeAllMap();
-	void SetMonster(int i, int j, CMonster* mob);
-	bool IsMovableCoordinate(Position position, DIRECTION DIR);
+	void		SetRandomTileTypeAllMap();
+	void		SetMonster(int i, int j, CMonster* mob);
+	bool		IsMovableCoordinate(Position position, DIRECTION DIR);
 
-	void DeleteAllMonster();
-	void ReleaseInstance();
+	void		DeleteAllMonster();
+	void		ReleaseInstance();
 
 private:
 	CMapTile			m_WorldGameMap[WORLD_MAP_WIDTH][WORLD_MAP_HEIGHT];

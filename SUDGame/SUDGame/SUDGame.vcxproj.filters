@@ -72,6 +72,9 @@
     <ClInclude Include="MapTile.h">
       <Filter>GameData\GameMap</Filter>
     </ClInclude>
+    <ClInclude Include="Help.h">
+      <Filter>GameLogic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -106,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="MapTile.cpp">
       <Filter>GameData\GameMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Help.cpp">
+      <Filter>GameLogic</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 #include "GameInput.h"
 #include "Player.h"
 #include "GameMap.h"
+#include "Help.h"
 #include <string>
 #include <iostream>
 
@@ -23,7 +24,7 @@ CGameInput* CGameInput::GetInstance()
 	{
 		m_pInstance = new CGameInput();
 	}
-		return m_pInstance;
+	return m_pInstance;
 }
 
 bool CGameInput::CommandInput()
@@ -57,9 +58,15 @@ bool CGameInput::CommandInput()
 		CPlayer::GetInstance()->MovePlayer(DIR_RIGHT);
 	}
 
+	// 지도 출력
 	if (userInput == "M" || userInput == "m")
 	{
 		CGameMap::GetInstance()->PrintMap();
+	}
+
+	if (userInput == "H" || userInput == "h")
+	{
+		CHelp::GetInstance()->printHelp();
 	}
 
 	if (userInput == "Q" || userInput == "q")

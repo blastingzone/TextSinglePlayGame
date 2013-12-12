@@ -4,7 +4,16 @@
 
 CCharacter::CCharacter(void)
 {
-	// agebreak : 멤버 변수들의 초기화가 빠졌습니다. 
+	m_Name = "";
+
+	m_HP = 0;
+	m_MP = 0;
+	m_STR = 0;
+	m_DEX = 0;
+	m_INT = 0;
+
+	m_CurrentPosition.i_Coordinate = 0;
+	m_CurrentPosition.j_Coordinate = 0;
 }
 
 

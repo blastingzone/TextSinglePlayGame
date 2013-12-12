@@ -69,6 +69,7 @@ void CGameMap::PrintMap()
 // agebreak : 현재 버전에는 맵이 랜덤으로 생성되어서, 시작해서 움직이지 못하는 경우가 생기는 버그가 있습니다. 
 // 최종 버전에는 이런 버그들도 해결되길 바랍니다. ^^
 // 그리고 캐릭터가 맵에 표시되지 않아서, 확인이 어려운 점도 있습니다. 
+// 넵 ^^;;
 void CGameMap::SetRandomTileTypeAllMap()
 {
 	int randomValue;
@@ -108,8 +109,9 @@ bool CGameMap::IsMovableCoordinate(Position position, DIRECTION DIR)
 		break;
 	}
 
-	// agebreak : 굳이 같은 클래스내에서는 싱글톤 클래스를 사용할 필요가 없습니다. 
+	// 굳이 같은 클래스내에서는 싱글톤 클래스를 사용할 필요가 없습니다. 
 	//return CGameMap::GetInstance()->GetMapType(position)->IsMovable();
+	// Aㅏ;
 	return GetMapType(position)->IsMovable();
 }
 

@@ -8,19 +8,19 @@ public:
 	CCharacter(void);
 	virtual ~CCharacter(void);
 
-	void SetName(std::string name) {m_Name = name;}
-	void SetPosition(int i, int j) {m_CurrentPosition.i_Coordinate = i; m_CurrentPosition.j_Coordinate = j;}
+	void SetName(std::string name)		{m_Name = name;}
+	void SetPosition(int i, int j)		{m_CurrentPosition.i_Coordinate = i; m_CurrentPosition.j_Coordinate = j;}
 	
-	std::string GetName() {return m_Name;}
+	std::string GetName()				{return m_Name;}
 
-	Position GetPosition() {return m_CurrentPosition;}
-	bool IsAlive() {return (m_HP > 0 ? true : false);}
+	Position GetPosition()				{return m_CurrentPosition;}
+	bool IsAlive()						{return (m_HP > 0 ? true : false);}
 	
 	void HitCheck(CCharacter* attacker);
 
-	int GetSTR() {return m_STR;}
-	int GetDEX() {return m_DEX;}
-	int GetINT() {return m_INT;}
+	int GetSTR()						{return m_STR;}
+	int GetDEX()						{return m_DEX;}
+	int GetINT()						{return m_INT;}
 
 protected:
 	std::string	m_Name;

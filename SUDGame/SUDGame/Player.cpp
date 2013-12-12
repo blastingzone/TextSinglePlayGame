@@ -5,9 +5,12 @@ CPlayer* CPlayer::m_pInstance = nullptr;
 
 CPlayer::CPlayer(void)
 {
+	// 시작 좌표 설정
 	m_CurrentPosition.i_Coordinate = 0;
 	m_CurrentPosition.j_Coordinate = 0;
+
 	SetName("주인공");
+
 	// 기초 파라미터 설정
 	m_HP = 450;
 	m_MP = 150;

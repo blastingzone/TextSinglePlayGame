@@ -12,6 +12,6 @@ public:
 	
 
 private:
-	static CGameInput* m_pInstance;
+	static CGameInput*		m_pInstance;
 };
 

@@ -10,6 +10,8 @@ CMonster::CMonster(void)
 	m_STR = 9;
 	m_DEX = 9;
 	m_INT = 9;
+
+	m_MonsterStatus = MONSTAT_NORMAL;
 }
 
 

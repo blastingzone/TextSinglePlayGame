@@ -9,7 +9,7 @@ public:
 	~CMapTile(void);
 
 	void Render();
-	void SetDescription(std::string description);
+	void SetDescription(const std::string& description);
 	
 	TILE_TYPE	GetTileType() {return m_TileType;}
 	void SetTileType(TILE_TYPE type);
