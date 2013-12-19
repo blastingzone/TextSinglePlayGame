@@ -2,15 +2,6 @@
 #include "config.h"
 #include "Monster.h"
 
-struct Timer
-{
-	Timer() : m_PreviousCheckedTime(0.f), m_PresentCheckedTime(0.f) {}
-
-	float m_PreviousCheckedTime;
-	float m_PresentCheckedTime;
-	float m_DifferentSecond;
-};
-
 class CGameMaster
 {
 public:

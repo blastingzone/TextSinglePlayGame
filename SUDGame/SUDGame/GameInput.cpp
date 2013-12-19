@@ -67,6 +67,8 @@ bool CGameInput::CommandInput()
 	if (userInput == "H" || userInput == "h")
 	{
 		CHelp::GetInstance()->printHelp();
+		// 도움말을 자주 사용하지 않을 것이라고 가정
+		CHelp::GetInstance()->ReleaseInstance();
 	}
 
 	if (userInput == "Q" || userInput == "q")
