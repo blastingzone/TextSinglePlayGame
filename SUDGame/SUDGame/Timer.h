@@ -2,9 +2,10 @@
 
 // 쓰레드용 전역변수. 좀 더 우아한 접근은 없는가?
 // 괜찮다. 문제없어(정말?)
-static DWORD				m_PreviousCheckedTime;
-static DWORD				m_PresentCheckedTime;
-static DWORD				m_DifferentSecond;
+static DWORD				gPreviousCheckedTime;
+static DWORD				gPresentCheckedTime;
+static DWORD				gDifferentSecond;
+static bool					gIsTimerWorkable = true;
 
 class CTimer
 {
@@ -15,13 +16,17 @@ public:
 	//지나간 시간을 계산
 	void CalcPassedTime();
 
-	//1초가 지났는지 확인
-	unsigned int IsPassedOneSecond();
+	//일정한 시간마다 할 일들을 정의함
+	unsigned int OnTick();
+
+	//타이머의 진행 / 멈춤을 결정함
+	static void DoTimerGo();
+	static void DoTimerStop();
 
 	//타이머 변수들을 초기화 함
-	void ResetTimer()			{	m_DifferentSecond = 0;
-									m_PresentCheckedTime = 0;
-									m_PreviousCheckedTime = 0; }
+	static void ResetTimer()			{	gDifferentSecond = 0;
+									gPresentCheckedTime = 0;
+									gPreviousCheckedTime = 0; }
 
 	//타이머를 쓰레드에 집어넣기 위해 형식을 맞춰준 부분
 	static unsigned int __stdcall ThreadEntry(void* pLPVOID);

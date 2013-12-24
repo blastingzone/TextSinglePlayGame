@@ -23,6 +23,12 @@
     <Filter Include="GameData\GameMap">
       <UniqueIdentifier>{34e41c14-27cc-4848-a7cf-1d53d663509e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ThirdParty">
+      <UniqueIdentifier>{eeb10f16-f2e2-4c3b-88fd-1b11e9e7354e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\tinyXML">
+      <UniqueIdentifier>{45174253-15b3-460e-b5e9-2d97fbb326e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -70,6 +76,12 @@
     <ClInclude Include="Timer.h">
       <Filter>GameLogic</Filter>
     </ClInclude>
+    <ClInclude Include="tinyXML\tinystr.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\tinyxml.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -110,6 +122,18 @@
     </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>GameLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\tinystr.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\tinyxml.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\tinyxmlerror.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\tinyxmlparser.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

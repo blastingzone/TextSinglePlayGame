@@ -3,6 +3,7 @@
 #include "GameMap.h"
 #include "Player.h"
 #include <random>
+#include "Timer.h"
 
 
 CGameMaster::CGameMaster(void)
@@ -49,6 +50,9 @@ void CGameMaster::CreateAndLocaleMonsters()
 
 void CGameMaster::StartBattle(CMonster* mob)
 {
+	// 타이머를 멈춘다.
+	CTimer::DoTimerStop();
+
 	int battleCounter = 0;
 	printf_s("===================Battle Start!!====================\n");
 	while (CPlayer::GetInstance()->IsAlive() && mob->IsAlive() )
@@ -64,7 +68,7 @@ void CGameMaster::StartBattle(CMonster* mob)
 		++battleCounter;
 		Sleep(1000);
 	}
-	printf_s("===================Battle END!!====================\n");
+	printf_s("=========================Battle END!!=========================\n");
 	// 유저가 이기면 타일의 몹을 삭제하고 몹 자리를 nullptr로 바꾼다
 	if (CPlayer::GetInstance()->IsAlive())
 	{
@@ -79,7 +83,10 @@ void CGameMaster::StartBattle(CMonster* mob)
 		getchar();
 		exit(0);
 	}
+	printf_s("전투 종료! 아무 키나 누르세요!");
 	getchar();
+	// 여기까지 도달하면 전투 종료이므로 타이머를 재개한다
+	CTimer::DoTimerGo();
 }
 
 void CGameMaster::CheckMob(Position position)

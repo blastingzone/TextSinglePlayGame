@@ -16,7 +16,7 @@ CTimer::~CTimer(void)
 // Timer Part
 /////////////////////////////////////////////////////////////////////////////////
 
-unsigned int CTimer::IsPassedOneSecond()
+unsigned int CTimer::OnTick()
 {
 	bool isInfinite = true;
 
@@ -24,11 +24,16 @@ unsigned int CTimer::IsPassedOneSecond()
 	{
 		// 시간 경과를 계산한다.
 		CalcPassedTime();
-		// 1초마다 해야 할 일
-		if (m_DifferentSecond > 1000)
+
+		// 타이머가 유효하다면 일을 하고 아니면 하지 않는다.
+		if (gIsTimerWorkable)
 		{
-			printf("1초가 넘었어!\n");
-			ResetTimer();
+			// 1초마다 해야 할 일
+			if (gDifferentSecond > 1000)
+			{
+				printf("1초가 넘었어!\n");
+				ResetTimer();
+			}
 		}
 	}
 
@@ -37,18 +42,32 @@ unsigned int CTimer::IsPassedOneSecond()
 
 void CTimer::CalcPassedTime()
 {
-	if (0 == m_PreviousCheckedTime)
+	if (0 == gPreviousCheckedTime)
 	{
-		m_PreviousCheckedTime = GetTickCount();
+		gPreviousCheckedTime = GetTickCount();
 	}
 	else
 	{
-		m_PresentCheckedTime = GetTickCount();
-		m_DifferentSecond = m_PresentCheckedTime - m_PreviousCheckedTime;
+		gPresentCheckedTime = GetTickCount();
+		gDifferentSecond = gPresentCheckedTime - gPreviousCheckedTime;
 	}
 }
 
+// 쓰레드에 넣기 위해 형식을 맞춰준다
 unsigned int __stdcall WINAPI CTimer::ThreadEntry(void* pUserData)
 {
-	return ((CTimer*)pUserData)->IsPassedOneSecond();
+	return ((CTimer*)pUserData)->OnTick();
+}
+
+// 타이머가 계속 진행하도록 설정
+void CTimer::DoTimerGo()
+{
+	gIsTimerWorkable = true;
+	ResetTimer();
+}
+
+// 타이머가 멈추도록 설정
+void CTimer::DoTimerStop()
+{
+	gIsTimerWorkable = false;
 }
