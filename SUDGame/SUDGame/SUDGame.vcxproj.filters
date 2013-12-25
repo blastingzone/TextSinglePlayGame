@@ -82,6 +82,51 @@
     <ClInclude Include="tinyXML\tinyxml.h">
       <Filter>ThirdParty\tinyXML</Filter>
     </ClInclude>
+    <ClInclude Include="tinyXML\action_store.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\byte_stream.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\htmlutil.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\lex_token.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\lex_util.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\node_set.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\tinyxpath_conf.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\tokenlist.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\xml_util.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\xpath_expression.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\xpath_processor.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\xpath_stack.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\xpath_static.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\xpath_stream.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyXML\xpath_syntax.h">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -133,6 +178,42 @@
       <Filter>ThirdParty\tinyXML</Filter>
     </ClCompile>
     <ClCompile Include="tinyXML\tinyxmlparser.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\action_store.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\htmlutil.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\lex_util.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\node_set.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\tokenlist.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\xml_util.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\xpath_expression.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\xpath_processor.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\xpath_stack.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\xpath_static.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\xpath_stream.cpp">
+      <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyXML\xpath_syntax.cpp">
       <Filter>ThirdParty\tinyXML</Filter>
     </ClCompile>
   </ItemGroup>

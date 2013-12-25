@@ -15,6 +15,7 @@ CGameMaster::~CGameMaster(void)
 {
 }
 
+//랜덤으로 몬스터를 생성해서 맵 곳곳에 뿌려주는 함수
 void CGameMaster::CreateAndLocaleMonsters()
 {
 	int random_x;
