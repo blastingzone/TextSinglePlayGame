@@ -113,16 +113,18 @@ void CPlayer::RecoverStatus( int HPRecover, int MPRecover )
 	printf_s("체력 변화 %3d, 마나 변화 %3d \n", HPRecover, MPRecover);
 }
 
-void CPlayer::GiveItemToPrincess( ITEM_TYPE Item )
+bool CPlayer::GiveItemToPrincess( ITEM_TYPE Item )
 {
 	// 보유한 아이템이 1 이상일 때만 줄 수 있다.
 	if (Inventory[Item] > 0)
 	{
 		--Inventory[Item];
+		return true;
 	}
 	else
 	{
 		printf_s("...아무것도 없는데요?\n");
+		return false;
 	}
 }
 
@@ -144,7 +146,7 @@ void CPlayer::PrintItemList()
 		printf_s("%d. %s : %d 개\n", i, GetItemName( tempItemType ), Inventory[tempItemType]);
 	}
 	printf_s("\n===========================\n");
-	printf_s("엔터 키를 누르세요.\n");
+	printf_s("공주에게 줄 수 있는 아이템들입니다. 엔터 키를 누르세요.\n");
 	getchar();
 }
 

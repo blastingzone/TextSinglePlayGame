@@ -113,8 +113,11 @@ bool CGameInput::CommandInput()
 
 			if ( ItemNum >= 0 && ItemNum < ITEM_COUNT )
 			{
-				CPlayer::GetInstance()->GiveItemToPrincess( static_cast<ITEM_TYPE>(ItemNum) );
-				CPrincess::GetInstance()->GetItemFromPlayer( static_cast<ITEM_TYPE>(ItemNum) );
+				bool Success = CPlayer::GetInstance()->GiveItemToPrincess( static_cast<ITEM_TYPE>(ItemNum) );
+				if ( Success )
+				{
+					CPrincess::GetInstance()->GetItemFromPlayer( static_cast<ITEM_TYPE>(ItemNum) );
+				}
 			}
 		}
 	}

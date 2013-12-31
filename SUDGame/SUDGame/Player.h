@@ -26,7 +26,7 @@ public:
 	bool GetFuryFlag()		{ return SkillFuryFlag; }
 
 	void GetItem(ITEM_TYPE Item);
-	void GiveItemToPrincess(ITEM_TYPE Item);
+	bool GiveItemToPrincess(ITEM_TYPE Item);
 	void PrintItemList();
 
 	char* GetItemName(ITEM_TYPE Item);
