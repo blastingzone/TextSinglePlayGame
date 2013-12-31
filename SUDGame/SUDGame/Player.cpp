@@ -144,8 +144,8 @@ void CPlayer::PrintItemList()
 		printf_s("%d. %s : %d 개\n", i, GetItemName( tempItemType ), Inventory[tempItemType]);
 	}
 	printf_s("\n===========================\n");
-	getchar();
 	printf_s("엔터 키를 누르세요.\n");
+	getchar();
 }
 
 // 아이템 타입을 주면 이름이 나오는 함수

@@ -7,6 +7,7 @@
 #include "GameMap.h"
 #include "GameMaster.h"
 #include "Timer.h"
+#include "Princess.h"
 #include <crtdbg.h>
 #include <time.h>
 #include <process.h>
@@ -86,6 +87,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	CGameMap::GetInstance()->DeleteAllMonster();
 	CGameMap::GetInstance()->ReleaseInstance();
 	CGameInput::GetInstance()->ReleaseInstance();
+	CPrincess::GetInstance()->ReleaseInstance();
 	
 	// 타이머를 파.괴.한.다.
 	delete TM;

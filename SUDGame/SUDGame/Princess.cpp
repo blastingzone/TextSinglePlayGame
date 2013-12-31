@@ -87,4 +87,7 @@ void CPrincess::GetItemFromPlayer( ITEM_TYPE Item )
 		break;
 	}
 	printf_s("좋은 아이템을 얻었네요. 고마워요!\n");
+	printf_s("공주 status 힘 : %d, 민첩 : %d, 지능 %d\n",m_STR, m_DEX, m_INT);
+	printf_s("엔터 키를 누르십시오\n");
+	getchar();
 }
