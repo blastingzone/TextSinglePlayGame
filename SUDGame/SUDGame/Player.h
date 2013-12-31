@@ -25,6 +25,12 @@ public:
 	void TurnFuryFlag()		{ SkillFuryFlag = !SkillFuryFlag; }
 	bool GetFuryFlag()		{ return SkillFuryFlag; }
 
+	void GetItem(ITEM_TYPE Item);
+	void GiveItemToPrincess(ITEM_TYPE Item);
+	void PrintItemList();
+
+	char* GetItemName(ITEM_TYPE Item);
+
 private:
 	static CPlayer* m_pInstance;
 
@@ -33,5 +39,7 @@ private:
 
 	// 시간 한정 스킬용 플래그
 	bool					SkillFuryFlag;
-};
 
+	// 주인공 아이템 배열 IDX = 아이템 종류, VALUE = 아이템 수량
+	int						Inventory[ITEM_COUNT];
+};

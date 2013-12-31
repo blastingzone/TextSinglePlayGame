@@ -40,15 +40,21 @@ void CGameMap::InitMap()
 	// 테스트용 랜덤 맵 (실제 구현시 주석)
 	// SetRandomTileTypeAllMap();
 
+	// XML 출력 테스트용
+	std::string filePath = "";
+	filePath.append("./XmlData/GameMap.xml");
+
+	TiXmlDocument gameMapData = TiXmlDocument( filePath.c_str() );
+
 	CreateAllMapByFile();
 }
 
 void CGameMap::PrintMap()
 {
 	printf_s(" ::::::::: 세계지도   ~ : 강, ^ : 산, D : 던전, T : 마을 ::::::::::\n\n");
-	for (int i = 0; i < WORLD_MAP_HEIGHT-1 ; i++)
+	for (int i = 0; i < WORLD_MAP_HEIGHT ; i++)
 	{
-		for (int j = 0; j < WORLD_MAP_WIDTH-1 ; j++)
+		for (int j = 0; j < WORLD_MAP_WIDTH ; j++)
 		{
 			Position PlayerPosition = CPlayer::GetInstance()->GetPosition();
 			if (PlayerPosition.i_Coordinate == i 
@@ -86,9 +92,9 @@ void CGameMap::PrintMap()
 void CGameMap::PrintFurySkillMap()
 {
 	printf_s(" ::::::::: Fury Mode! Fury Mode! Fury Mode! ::::::::::\n\n");
-	for (int i = 0; i < WORLD_MAP_HEIGHT-1 ; i++)
+	for (int i = 0; i < WORLD_MAP_HEIGHT ; i++)
 	{
-		for (int j = 0; j < WORLD_MAP_WIDTH-1 ; j++)
+		for (int j = 0; j < WORLD_MAP_WIDTH ; j++)
 		{
 			Position PlayerPosition = CPlayer::GetInstance()->GetPosition();
 			if (PlayerPosition.i_Coordinate == i 
@@ -232,10 +238,6 @@ void CGameMap::CreateAllMapByFile()
 			// 이렇게 안 하면 에러난다!
 			if ( targetElement )
 			{
-				printf_s("%s \n", targetElement->FirstChildElement("Description")->GetText() );
-				printf_s("%s \n", targetElement->FirstChildElement("TileType")->GetText() );
-				printf_s("MapType 변경 테스트 : %d \n", StringToTileType(targetElement->FirstChildElement("TileType")->GetText()));
-
 				// XML로 받아온 Tile_Type을 맵 속성으로 할당한다.
 				TILE_TYPE tileType = static_cast<TILE_TYPE>( StringToTileType( targetElement->FirstChildElement("TileType")->GetText() ) );
 
@@ -255,7 +257,7 @@ void CGameMap::CreateAllMapByFile()
 			}
 		}
 	}
-	printf_s("Map 불러오기 성공! 아무 키나 누르세요 \n");
+	printf_s("Map 불러오기 성공! 엔터 키를 누르세요 \n");
 	getchar();
 }
 

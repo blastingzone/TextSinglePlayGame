@@ -14,12 +14,6 @@
     <Filter Include="GameData\Characters">
       <UniqueIdentifier>{e4950e36-4851-49e7-bdef-db5c4f21c550}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameData\Item">
-      <UniqueIdentifier>{536819db-3563-49a2-870b-c9c33de69c7e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameData\Skill">
-      <UniqueIdentifier>{88c63cf4-b8e2-4a95-be27-127ca0e14d94}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameData\GameMap">
       <UniqueIdentifier>{34e41c14-27cc-4848-a7cf-1d53d663509e}</UniqueIdentifier>
     </Filter>
@@ -57,12 +51,6 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>GameData\Characters</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>GameData\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Skill.h">
-      <Filter>GameData\Skill</Filter>
     </ClInclude>
     <ClInclude Include="GameMap.h">
       <Filter>GameData\GameMap</Filter>
@@ -127,6 +115,9 @@
     <ClInclude Include="tinyXML\xpath_syntax.h">
       <Filter>ThirdParty\tinyXML</Filter>
     </ClInclude>
+    <ClInclude Include="Princess.h">
+      <Filter>GameData\Characters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -149,12 +140,6 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>GameData\Characters</Filter>
-    </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>GameData\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Skill.cpp">
-      <Filter>GameData\Skill</Filter>
     </ClCompile>
     <ClCompile Include="GameMap.cpp">
       <Filter>GameData\GameMap</Filter>
@@ -215,6 +200,9 @@
     </ClCompile>
     <ClCompile Include="tinyXML\xpath_syntax.cpp">
       <Filter>ThirdParty\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="Princess.cpp">
+      <Filter>GameData\Characters</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

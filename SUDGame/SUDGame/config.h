@@ -55,7 +55,22 @@ enum ENDING_TYPE
 {
 	CONTINUE_GAME,
 	ENDING_MONSTER_ELIMINATION,
+	ENDING_PRINCESS_DOMINATE,
 };
 
 // 몬스터 종류
 static const char* MOBNAME[5]  = {"좀비", "드래곤", "스켈레톤", "악마"};
+
+// 드랍되는 아이템 종류
+enum ITEM_TYPE
+{
+	MONSTER_BONE,
+	FLOWER_RING,
+	BLOOD,
+	GLASS_BOTTLE,
+	BROKEN_SILVER_SWORD,
+	POISONED_WINE,
+	ANCIENT_GOLD_COIN,
+	OLD_BOOK,
+	ITEM_COUNT,
+};

@@ -37,6 +37,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	// 세계지도 초기화
 	CGameMap::GetInstance()->InitMap();
 	GM.CreateAndLocaleMonsters();
+	printf_s("\n 지도 초기화 및 몬스터 배치가 끝났습니다. \n 엔터 키를 눌러주세요. \n");
 	getchar();
 
 	// 현 위치를 출력하기 위한 쓰레드
@@ -66,6 +67,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 		// 엔딩 조건 검사
 		Ending = GM.GameEndCheck();
+
 		// 만약 엔딩조건에 해당될 경우 loop 탈출 및 엔딩
 		// 타이머도 멈춘다.
 		if ( Ending != CONTINUE_GAME )

@@ -22,6 +22,12 @@ CPlayer::CPlayer(void)
 
 	// 스킬용 플래그 설정
 	SkillFuryFlag = false;
+
+	// 생성될 때는 모든 아이템이 0개
+	for (int i = 0 ; i < ITEM_COUNT ; ++i)
+	{
+		Inventory[i] = 0;
+	}
 }
 
 CPlayer::~CPlayer(void)
@@ -105,4 +111,64 @@ void CPlayer::RecoverStatus( int HPRecover, int MPRecover )
 	}
 
 	printf_s("체력 변화 %3d, 마나 변화 %3d \n", HPRecover, MPRecover);
+}
+
+void CPlayer::GiveItemToPrincess( ITEM_TYPE Item )
+{
+	// 보유한 아이템이 1 이상일 때만 줄 수 있다.
+	if (Inventory[Item] > 0)
+	{
+		--Inventory[Item];
+	}
+	else
+	{
+		printf_s("...아무것도 없는데요?\n");
+	}
+}
+
+void CPlayer::GetItem( ITEM_TYPE Item )
+{
+	if ( Item < ITEM_COUNT )
+	{
+		Inventory[Item]++;
+		printf_s("아이템을 얻었다! : %s\n", GetItemName(Item));
+	}
+}
+
+void CPlayer::PrintItemList()
+{
+	printf_s("\n===========인벤토리==========\n");
+	for (int i = 0; i < ITEM_COUNT; ++i)
+	{
+		ITEM_TYPE tempItemType = static_cast<ITEM_TYPE>(i);
+		printf_s("%d. %s : %d 개\n", i, GetItemName( tempItemType ), Inventory[tempItemType]);
+	}
+	printf_s("\n===========================\n");
+	getchar();
+	printf_s("엔터 키를 누르세요.\n");
+}
+
+// 아이템 타입을 주면 이름이 나오는 함수
+char* CPlayer::GetItemName(ITEM_TYPE Item)
+{
+	switch( Item )
+	{
+	case MONSTER_BONE:
+		return "몬스터 뼈";
+	case FLOWER_RING:
+		return "꽃반지";
+	case BLOOD:
+		return "정체불명의 괴물 피";
+	case GLASS_BOTTLE:
+		return "유리병";
+	case BROKEN_SILVER_SWORD:
+		return "부서진 은장도";
+	case POISONED_WINE:
+		return "독약이 든 와인";
+	case ANCIENT_GOLD_COIN:
+		return "고대의 황금 주화";
+	case OLD_BOOK:
+		return "낡은 책";
+	}
+	return "아이템이 아닙니다.";
 }
