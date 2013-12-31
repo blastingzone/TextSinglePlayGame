@@ -1,4 +1,6 @@
 #pragma once
+#include "config.h"
+
 
 // 쓰레드용 전역변수. 좀 더 우아한 접근은 없는가?
 // 괜찮다. 문제없어(정말?)
@@ -6,6 +8,8 @@ static DWORD				gPreviousCheckedTime;
 static DWORD				gPresentCheckedTime;
 static DWORD				gDifferentSecond;
 static bool					gIsTimerWorkable = true;
+// 1초가 몇 번 경과했는지 세는 변수
+static int					gSecondsStack = 0;
 
 class CTimer
 {

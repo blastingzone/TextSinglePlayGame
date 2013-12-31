@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<Map>
+	<GameTileType>
+	TYPE_MOUNTAIN, TYPE_RIVER, TYPE_TOWN, TYPE_DUNGEON, TYPE_ROAD 
+	</GameTileType>
+	<Opening>
+		왕국을 위협하는 몬스터들을 무찌르고;
+		공주에게 전리품을 갖다 바치세요!;
+	</Opening>
+	<Description>
+		XML Test! 지도를 불러오는 중입니다...;
+		세미콜론은 라인 세퍼레이터입니다;
+		디스크립션 출력에는 라인 세퍼레이터와 함께!;
+	</Description>
+	<Zero>
+		<Zero>
+			<Description>
+				디스크립션입니다.
+			</Description>
+			<TileType>
+				TYPE_ROAD
+			</TileType>
+		</Zero>
+		<One>
+			<Description>
+				던전입니다 두둥!
+			</Description>
+			<TileType>
+				TYPE_DUNGEON
+			</TileType>
+		</One>
+	</Zero>
+</Map>

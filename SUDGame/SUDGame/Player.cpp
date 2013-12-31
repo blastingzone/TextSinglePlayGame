@@ -13,10 +13,15 @@ CPlayer::CPlayer(void)
 
 	// 기초 파라미터 설정
 	m_HP = 450;
+	m_MaxHP = 450;
 	m_MP = 150;
+	m_MaxMP = 150;
 	m_STR = 11;
 	m_DEX = 11;
 	m_INT = 11;
+
+	// 스킬용 플래그 설정
+	SkillFuryFlag = false;
 }
 
 CPlayer::~CPlayer(void)
@@ -81,4 +86,23 @@ void CPlayer::PrintStatusUI()
 	printf("|   체력 : %5d     마력 : %5d                   |\n", m_HP, m_MP );
 	printf("|   근력 : %5d     민첩 : %5d    지능 : %5d   |\n", m_STR, m_DEX, m_INT );
 	printf("+~=~=~=~=~=~=~~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=+\n");
+}
+
+void CPlayer::RecoverStatus( int HPRecover, int MPRecover )
+{
+	m_HP += HPRecover;
+	
+	if (m_HP > m_MaxHP)
+	{
+		m_HP = m_MaxHP;
+	}
+
+	m_MP += MPRecover;
+
+	if (m_MP > m_MaxMP)
+	{
+		m_MP = m_MaxMP;
+	}
+
+	printf_s("체력 변화 %3d, 마나 변화 %3d \n", HPRecover, MPRecover);
 }

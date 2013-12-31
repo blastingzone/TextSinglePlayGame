@@ -12,5 +12,9 @@ public:
 
 	void StartBattle(CMonster* mob);
 	void CheckMob(Position position);
+
+	ENDING_TYPE GameEndCheck();
+
+	void EndingScene(ENDING_TYPE Ending);
 };
 

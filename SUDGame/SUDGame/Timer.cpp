@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Timer.h"
-
+#include "Player.h"
 
 CTimer::CTimer(void)
 {
@@ -31,8 +31,35 @@ unsigned int CTimer::OnTick()
 			// 1초마다 해야 할 일
 			if (gDifferentSecond > 1000)
 			{
-				printf("1초가 넘었어!\n");
 				ResetTimer();
+				++gSecondsStack;
+				// Fury 스킬이 활성화 되어 있다면 매초 마나를 3씩 깎는다.
+				if ( CPlayer::GetInstance()->GetFuryFlag() )
+				{
+					// 남은 마나가 3 미만이면 자동으로 퓨리가 풀린다.
+					if ( CPlayer::GetInstance()->GetMP() < 3 )
+					{
+						printf_s("당신은 극도의 피로를 느낍니다.\n");
+						CPlayer::GetInstance()->TurnFuryFlag();
+					}
+
+					// Fury 스킬이 활성화 되어 있더라도 지능이 높으면 마나가 깎이는 것을 방어할 수 있다.
+					if ( CPlayer::GetInstance()->GetINT() + ( rand() % 20 ) < 23 )
+					{
+						printf_s("당신은 이성을 잃고 그 대가로 몬스터를 꿰뚫어봅니다. \n");
+						CPlayer::GetInstance()->RecoverStatus(0, -3);
+					}
+					else
+					{
+						printf_s("당신은 이성을 찾으려고 애씁니다. 마나 소모에 저항합니다. \n");
+					}
+				}
+			}
+			// 10초마다 해야 할 일
+			if (gSecondsStack >= 10)
+			{
+				gSecondsStack = 0;
+				CPlayer::GetInstance()->RecoverStatus(5, 0);
 			}
 		}
 	}
@@ -62,8 +89,8 @@ unsigned int __stdcall WINAPI CTimer::ThreadEntry(void* pUserData)
 // 타이머가 계속 진행하도록 설정
 void CTimer::DoTimerGo()
 {
-	gIsTimerWorkable = true;
 	ResetTimer();
+	gIsTimerWorkable = true;
 }
 
 // 타이머가 멈추도록 설정
